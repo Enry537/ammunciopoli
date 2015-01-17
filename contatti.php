@@ -1,0 +1,32 @@
+<?php
+session_start();
+
+	if ( ($_GET['login'] == "success") ||  ($_GET['insert'] == "success") || ($_GET['logout'] == "success")) {
+	header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Annunciopoli | Annunci gratis</title>
+<link href="files/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+    <div id="header">
+         </div><!--#header-->
+        <div id="navigation"><?php include ('files/menu_Hor.html'); ?></div><!--#navigation-->
+    <div id="sidebar">
+<?php include ('files/menu_Sid.php'); ?>
+    </div>
+    <div id="main">
+        <p>Per maggiori informazioni su questa applicazione inviate una mail all'indirizzo ma.sarritzu3@studenti.unica.it. <br />
+          <br />
+<a href="mailto:ma.sarritzu3@studenti.unica.it"><img src="files/img/button_inv.jpg" border="0" alt="invia" onmouseover="this.src='files/img/button_invh.jpg'" onmouseout="this.src='files/img/button_inv.jpg'"/></a>        </p>
+    </div>
+    <div id="footer"><?php include ('files/footer.html'); ?></div>
+</div>
+</body>
+</html>
