@@ -32,25 +32,25 @@ include ('files/configurazione.php');
 		
 		// eseguo un controllo per vedere se ho premuto o no sul tasto cerca
 		
-		if ( (@$_GET['categoria'] != null || @$_GET['provincia'] != null) || (@$_GET['categoria'] != null && @$_GET['provincia'] != null) ) {
-			if (@$_GET['categoria'] != null && @$_GET['provincia'] != null) {
+if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categoria'] != null && $_GET['provincia'] != null) ) {
+			if ($_GET['categoria'] != null && $_GET['provincia'] != null) {
 			
-			$search_Cat=@$_GET['categoria'];
-        	$search_Pro=@$_GET['provincia'];	
-			$risultati=mysql_query("SELECT * FROM annunci WHERE categoria = '$search_Cat' AND provincia = '$search_Pro' ORDER BY data DESC"); 
+			$search_Cat=$_GET['categoria'];
+        	$search_Pro=$_GET['provincia'];	
+			$risultati=mysql_query("SELECT * FROM annunci WHERE provincia = '$search_Pro' AND categoria = '$search_Cat'  ORDER BY data DESC"); 
 				
 				}
 				
-				if (@$_GET['categoria'] != "Seleziona una categoria") {
+				if ($_GET['categoria'] != "Seleziona una categoria" && $_GET['provincia'] == "Seleziona una provincia") {
 				
-				$search_Cat=@$_GET['categoria'];
+				$search_Cat=$_GET['categoria'];
 				$risultati=mysql_query("SELECT * FROM annunci WHERE categoria = '$search_Cat' ORDER BY data DESC"); 
 			
 				} 
 				
-				if (@$_GET['provincia'] != "Seleziona una provincia") {
+				if ($_GET['provincia'] != "Seleziona una provincia" && $_GET['categoria'] == "Seleziona una categoria") {
 				
-        		$search_Pro=@$_GET['provincia'];
+        		$search_Pro=$_GET['provincia'];
 				$risultati=mysql_query("SELECT * FROM annunci WHERE provincia = '$search_Pro' ORDER BY data DESC"); 
 				
 				}
