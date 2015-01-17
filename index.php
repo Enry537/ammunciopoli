@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-	if ( ($_GET['login'] == "success") ||  ($_GET['insert'] == "success") || ($_GET['logout'] == "success") || ($_GET['login'] == "success")) {
+	if ( ($_GET['login'] == "success") ||  ($_GET['insert'] == "success") || ($_GET['logout'] == "success")) {
 	header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
 }
 
