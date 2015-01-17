@@ -43,7 +43,7 @@ $vettore = mysql_fetch_array($risultati);
 $num = mysql_num_rows($risultati);
 if ( $num == 1 ) {
 		echo "<b>Complimenti $username login effettuato con successo.</b>";
-		session_start();
+		@session_start();
 		$_SESSION['login'] = "Yes";
 		$_SESSION['id'] = $vettore['id'];
 		$_SESSION['username'] = $vettore['user'];
