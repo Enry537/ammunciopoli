@@ -9,10 +9,10 @@
 <?php
 // connettiamoci il nostro database
 
-$db_host = "mysql.netsons.com";
-$db_user = "fsbqilay";
-$db_password = "@147258@";
-$db_name = "fsbqilay_annunciopoli";
+$db_host = "localhost";
+$db_user = "deianaEnrico";
+$db_password = "scarabeo52";
+$db_name = "amm14_deianaEnrico";
 
 //connetto il database
 $db = mysql_connect($db_host, $db_user, $db_password) or die ('Errore durante la connessione');
