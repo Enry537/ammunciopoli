@@ -1,7 +1,7 @@
 <?php
 // avviamo la sessione per continuare la precedente o crearne una nuova
 @session_start();
-if ($_SESSION['login'] == null && $_SESSION['id'] == null) {
+if (@$_SESSION['login'] == null && @$_SESSION['id'] == null) {
 	
 // controlli aprire o no il mini login nel menu laterale
 if ( $_SERVER['PHP_SELF'] != "/AMM/login.php" ) {
