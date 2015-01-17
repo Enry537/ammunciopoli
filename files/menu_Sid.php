@@ -32,7 +32,7 @@ if ( $_SERVER['PHP_SELF'] != "/AMM/login.php" ) {
 
 <?php
 	if ( @$_GET['logout'] == "success" ) {
-	session_start();//Distruggo la vecchia sessione
+	@session_start();//Distruggo la vecchia sessione
 	session_unset();
 	session_destroy();
 	session_start();//Apro una nuova sessione
