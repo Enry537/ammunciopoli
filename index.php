@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 	if ( (@$_GET['login'] == "success") ||  (@$_GET['insert'] == "success") || (@$_GET['logout'] == "success")) {
 	header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
 }
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,10 +13,8 @@ session_start();
 </head>
 <body>
 <?php
-
 // includiamo il file di connessione al database
 include ('files/configurazione.php');
-
 ?>
 <div id="container">
     <div id="header">
@@ -32,25 +28,25 @@ include ('files/configurazione.php');
 		
 		// eseguo un controllo per vedere se ho premuto o no sul tasto cerca
 		
-if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categoria'] != null && $_GET['provincia'] != null) ) {
-			if ($_GET['categoria'] != null && $_GET['provincia'] != null) {
+if ( (@$_GET['categoria'] != null || @$_GET['provincia'] != null) || (@$_GET['categoria'] != null && @$_GET['provincia'] != null) ) {
+			if (@$_GET['categoria'] != null && @$_GET['provincia'] != null) {
 			
-			$search_Cat=$_GET['categoria'];
-        	$search_Pro=$_GET['provincia'];	
+			$search_Cat=@$_GET['categoria'];
+        	$search_Pro=@$_GET['provincia'];	
 			$risultati=mysql_query("SELECT * FROM annunci WHERE provincia = '$search_Pro' AND categoria = '$search_Cat'  ORDER BY data DESC"); 
 				
 				}
 				
-				if ($_GET['categoria'] != "Seleziona una categoria" && $_GET['provincia'] == "Seleziona una provincia") {
+				if (@$_GET['categoria'] != "Seleziona una categoria" && @$_GET['provincia'] == "Seleziona una provincia") {
 				
-				$search_Cat=$_GET['categoria'];
+				$search_Cat=@$_GET['categoria'];
 				$risultati=mysql_query("SELECT * FROM annunci WHERE categoria = '$search_Cat' ORDER BY data DESC"); 
 			
 				} 
 				
-				if ($_GET['provincia'] != "Seleziona una provincia" && $_GET['categoria'] == "Seleziona una categoria") {
+				if (@$_GET['provincia'] != "Seleziona una provincia" && @$_GET['categoria'] == "Seleziona una categoria") {
 				
-        		$search_Pro=$_GET['provincia'];
+        		$search_Pro=@$_GET['provincia'];
 				$risultati=mysql_query("SELECT * FROM annunci WHERE provincia = '$search_Pro' ORDER BY data DESC"); 
 				
 				}
@@ -58,9 +54,7 @@ if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categ
 			} else {
 					
 		$risultati=mysql_query("SELECT * FROM annunci ORDER BY data DESC"); 
-
 			}
-
         $num=mysql_numrows($risultati);
 		
 		if ( $num != 0 ) {
@@ -95,7 +89,6 @@ if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categ
 <br />
 <hr />
 <br />";
-
      	$i++;
  						  }
 		}
@@ -104,11 +97,8 @@ if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categ
 			echo "<b>Seleziona una categoria e/o una provincia.</b>";
 			
 		} else {
-
 echo "<b>Non sono presenti annunci.</b>";
-
 }
-
 ?>
     </div>
     <div id="footer"><?php include ('files/footer.html'); ?></div>
