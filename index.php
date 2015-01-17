@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-	if ( ($_GET['login'] == "success") ||  ($_GET['insert'] == "success") || ($_GET['logout'] == "success")) {
+	@if ( ($_GET['login'] == "success") ||  ($_GET['insert'] == "success") || ($_GET['logout'] == "success")) {
 	header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
 }
 
@@ -32,7 +32,7 @@ include ('files/configurazione.php');
 		
 		// eseguo un controllo per vedere se ho premuto o no sul tasto cerca
 		
-		if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categoria'] != null && $_GET['provincia'] != null) ) {
+		@if ( ($_GET['categoria'] != null || $_GET['provincia'] != null) || ($_GET['categoria'] != null && $_GET['provincia'] != null) ) {
 			if ($_GET['categoria'] != null && $_GET['provincia'] != null) {
 			
 			$search_Cat=$_GET['categoria'];
