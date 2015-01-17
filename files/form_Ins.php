@@ -75,9 +75,9 @@ $sql = mysql_query("SELECT * FROM annunci WHERE titolo = '$titolo'") or die ("Ti
 $num = mysql_num_rows($sql);
 if ( $num == 0 ) {
 // infine criptiamo la password con md5
-$pass_md5 = md5($pass1);
-$nickname = mysql_real_escape_string($nickname);
-$nome = mysql_real_escape_string($nome);
+$pass_md5 = @md5($pass1);
+$nickname = @mysql_real_escape_string($nickname);
+$nome = @mysql_real_escape_string($nome);
 mysql_query("INSERT INTO annunci
              (id, titolo , categoria , provincia , prezzo , descrizione , mail, data )
              VALUES
