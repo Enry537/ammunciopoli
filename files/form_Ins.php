@@ -1,10 +1,7 @@
 <?php
-
 // includiamo il file di connessione al database
 include ('configurazione.php');
-
 if ($_SESSION['login'] == "Yes" && $_SESSION['id'] != null) {
-
 // creiamo il nostro modulo di registrazione
 ?>
 
@@ -54,84 +51,48 @@ if ($_SESSION['login'] == "Yes" && $_SESSION['id'] != null) {
 </form>
 
 <?php
-
 } else {
-
 echo "<p><b>Esegui l'accesso o la registrazione per poter inserire un annuncio.</b> <br />
           <br />
           <a href='login.php'><img src='files/img/1.jpg' border='0' alt='login' onmouseover=\"this.src='files/img/1h.jpg'\" onmouseout=\"this.src='files/img/1.jpg'\"/></a><br />
   <br />
   <a href='registrazione.php'><img src='files/img/2.jpg' border='0' alt='registrazione' onmouseover=\"this.src='files/img/2h.jpg'\" onmouseout=\"this.src='files/img/2.jpg'\"/></a></p>
 <p>&nbsp;</p>";
-
 }
-
-
 // attraverso un if controlliamo che il form sia stato inviato
-
-if ( $_GET['insert'] == "success" ) {
-
+if ( @$_GET['insert'] == "success" ) {
 // recuperiamo i dati inviati con il form
-
 $titolo = ucfirst($_POST['titolo']);
-
 $categoria = $_POST['categoria'];
-
 $provincia = $_POST['provincia'];
-
 $prezzo = $_POST['prezzo'];
-
 $descrizione = ucfirst($_POST['descrizione']);
-
 $mail = $_SESSION['mail'];
-
 // ora controlliamo che i campi siano stati tutti compilati
-
 if ( $titolo == TRUE && $categoria == TRUE && $provincia == TRUE && $prezzo == TRUE && $descrizione == TRUE && $mail == TRUE )  {
-
 // controlliamo se il titolo è presente già nel database
-
 $sql = mysql_query("SELECT * FROM annunci WHERE titolo = '$titolo'") or die ("Titolo già esistente");
-
 $num = mysql_num_rows($sql);
-
 if ( $num == 0 ) {
-
 // infine criptiamo la password con md5
-
 $pass_md5 = md5($pass1);
-
 $nickname = mysql_real_escape_string($nickname);
-
 $nome = mysql_real_escape_string($nome);
-
 mysql_query("INSERT INTO annunci
              (id, titolo , categoria , provincia , prezzo , descrizione , mail, data )
              VALUES
              ('', '$titolo', '$categoria', '$provincia', '$prezzo', '$descrizione', '$mail', CURRENT_TIMESTAMP )") OR DIE(mysql_error());
-
 // e inviamo una mail con la riuscita registazione
-
-
 mail ($mail, "Annuncio inserito", "Complimenti annuncio inserito con successo", "From: tuamail@host.formato");
-
 // messaggi da far visualizzare per conferma inserimento
-
 echo "<b>Complimenti annuncio inserito con successo.</b>";
  
 }
 else {
-
 echo "<b>Titolo già utilizzato.</b>";
-
 }
-
 } else {
-
 echo "<b>Tutti i campi sono obbligatori.</b>";
-
 }
-
 }
-
 ?>
