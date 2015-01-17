@@ -22,9 +22,9 @@ session_start();
 <?php include ('files/menu_Sid.php'); ?>
     </div>
     <div id="main">
-        <p>Per maggiori informazioni su questa applicazione inviate una mail all'indirizzo ma.sarritzu3@studenti.unica.it. <br />
+        <p>Per maggiori informazioni su questa applicazione inviate una mail all'indirizzo enry537@gmail.com. <br />
           <br />
-<a href="mailto:ma.sarritzu3@studenti.unica.it"><img src="files/img/button_inv.jpg" border="0" alt="invia" onmouseover="this.src='files/img/button_invh.jpg'" onmouseout="this.src='files/img/button_inv.jpg'"/></a>        </p>
+<a href="mailto:enry537@gmail.com"><img src="files/img/button_inv.jpg" border="0" alt="invia" onmouseover="this.src='files/img/button_invh.jpg'" onmouseout="this.src='files/img/button_inv.jpg'"/></a>        </p>
     </div>
     <div id="footer"><?php include ('files/footer.html'); ?></div>
 </div>
