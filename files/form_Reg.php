@@ -71,7 +71,7 @@ mysql_query("INSERT INTO utenti
              VALUES
              ('', '$nome', '$email', '$username', '$crypt_pass' )") OR DIE(mysql_error());
 // e inviamo una mail con la riuscita registazione
-mail ($mail, "Registrazione OK", "Complimenti registrazione effettuata con successo", "From: tuamail@host.formato");
+@mail ($mail, "Registrazione OK", "Complimenti registrazione effettuata con successo", "From: tuamail@host.formato");
 // messaggi da far visualizzare all'utente finale
 echo "<b>Complimenti registrazione effettuata con successo.</b>";
 } else {
