@@ -1,13 +1,11 @@
 <?php
 // avviamo la sessione per continuare la precedente o crearne una nuova
 session_start();
-
 if ($_SESSION['login'] == null && $_SESSION['id'] == null) {
 	
 // controlli aprire o no il mini login nel menu laterale
-
 if ( $_SERVER['PHP_SELF'] != "/AMM/login.php" ) {
-	if ( $_GET['form'] == "open" ) {
+	if ( @$_GET['form'] == "open" ) {
 		$form= "?form=close";
 		} else {
 			$form= "?form=open";
@@ -20,22 +18,20 @@ if ( $_SERVER['PHP_SELF'] != "/AMM/login.php" ) {
 
 <?php
 	
-	if ( $_GET['form'] == "open" || ($_GET['login'] == "success" && $_SERVER['PHP_SELF'] != "/AMM/login.php") ) {
+	if ( @$_GET['form'] == "open" || (@$_GET['login'] == "success" && $_SERVER['PHP_SELF'] != "/AMM/login.php") ) {
 		include ('files/form_Log.php');
 		}
-
 } else { 
 	
 	echo "Ciao <b>";
 	echo $_SESSION['username'];
 	echo "</b>";
-
 ?>
 
 <a href="?logout=success"><img src="files/img/ico_out.png" border="0" alt="logout" onmouseover="this.src='files/img/ico_outh.png'" onmouseout="this.src='files/img/ico_out.png'"/></a>
 
 <?php
-	if ( $_GET['logout'] == "success" ) {
+	if ( @$_GET['logout'] == "success" ) {
 	session_start();//Distruggo la vecchia sessione
 	session_unset();
 	session_destroy();
