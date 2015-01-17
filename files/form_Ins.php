@@ -1,7 +1,7 @@
 <?php
 // includiamo il file di connessione al database
 include ('configurazione.php');
-if ($_SESSION['login'] == "Yes" && $_SESSION['id'] != null) {
+if (@$_SESSION['login'] == "Yes" && @$_SESSION['id'] != null) {
 // creiamo il nostro modulo di registrazione
 ?>
 
