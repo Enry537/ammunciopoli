@@ -83,7 +83,7 @@ mysql_query("INSERT INTO annunci
              VALUES
              ('', '$titolo', '$categoria', '$provincia', '$prezzo', '$descrizione', '$mail', CURRENT_TIMESTAMP )") OR DIE(mysql_error());
 // e inviamo una mail con la riuscita registazione
-mail ($mail, "Annuncio inserito", "Complimenti annuncio inserito con successo", "From: tuamail@host.formato");
+@mail ($mail, "Annuncio inserito", "Complimenti annuncio inserito con successo", "From: tuamail@host.formato");
 // messaggi da far visualizzare per conferma inserimento
 echo "<b>Complimenti annuncio inserito con successo.</b>";
  
