@@ -1,6 +1,6 @@
 <?php
 session_start();
-	if ( if(isset($_GET["login"]))($_GET['login'] == "success") ||  if(isset($_GET["insert"]))($_GET['insert'] == "success") || if(isset($_GET["logout"]))($_GET['logout'] == "success")) {
+	if ( if(isset($_GET['login']))($_GET['login'] == "success") ||  if(isset($_GET['insert']))($_GET['insert'] == "success") || if(isset($_GET['logout']))($_GET['logout'] == "success")) {
 	header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
 }
 ?>
