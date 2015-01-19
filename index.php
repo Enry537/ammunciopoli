@@ -1,8 +1,20 @@
 <?php
 session_start();
-	if ( if(isset($_GET['login']))($_GET['login'] == "success") ||  if(isset($_GET['insert']))($_GET['insert'] == "success") || if(isset($_GET['logout']))($_GET['logout'] == "success")) {
-	header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
-}
+
+
+if(isset($_GET["login"]))
+if ($_GET['login'] == "success") 
+header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
+
+if(isset($_GET["insert"]))
+if ($_GET['insert'] == "success") 
+header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
+
+if(isset($_GET["logout"]))
+if ($_GET['login'] == "success") 
+header( "refresh:1;url={$_SERVER['PHP_SELF']}" ); 
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
